@@ -67,6 +67,10 @@ ad-blocker/
 
 ## Installation
 
+### From Chrome Web Store (Recommended)
+Install directly from the [Chrome Web Store](https://chromewebstore.google.com/detail/hjelnkidilbmikfdkjeeldkofhacfpgj).
+
+### Manual Development Installation
 1. Clone this repository locally.
 2. Open Google Chrome and navigate to `chrome://extensions/`.
 3. Toggle **Developer mode** (top right).
