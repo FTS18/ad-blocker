@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A lightweight, fast, local-first Manifest V3 ad blocker. Protect your privacy, block trackers, disable scripts, and browse securely.">
-  <title>Ad Blocker - Lightweight Manifest V3 Privacy Shield</title>
+  <meta name="description" content="A lightweight, fast, local-first Manifest V3 ad blocker. Block display ads, skip YouTube video ads instantly, disable tracking cookies, and browse securely with AdVoid.">
+  <title>AdVoid - Manifest V3 Ad Blocker & YouTube Privacy Shield</title>
   <link rel="stylesheet" href="site.css">
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -12,7 +12,10 @@
   <div class="container">
     <!-- Header Nav -->
     <nav class="nav">
-      <div class="logo">Ad<span>Blocker</span></div>
+      <a href="index.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none;" id="logoLink">
+        <img src="favicon.png" alt="AdVoid Logo" style="height: 18px; width: 18px;">
+        <div class="logo">Ad<span>Void</span></div>
+      </a>
       <div class="nav-links">
         <a href="index.html" class="nav-link active" id="navHome">Home</a>
         <a href="features.html" class="nav-link" id="navFeatures">Features</a>
@@ -23,10 +26,10 @@
 
     <!-- Hero Section -->
     <header>
-      <p class="hero-subtitle">Open Source & Local-First</p>
-      <h1>Browse Faster. Block Everything. Retain Privacy.</h1>
-      <p>Experience the web without display ads, telemetry tracking, cookie consent walls, or malware redirections. Fully compatible with Manifest V3.</p>
-      <a href="../welcome.html" style="color: var(--accent); font-weight: 600; font-size: 13px;">Get Started Guide &rarr;</a>
+      <p class="hero-subtitle">Open Source, YouTube Ad Skipping & Local-First</p>
+      <h1>Browse Faster, Block Everything, and Skip YouTube Ads with AdVoid</h1>
+      <p>Experience the web without display ads, YouTube video commercials, telemetry tracking, cookie consent walls, or malware redirections. Fully compatible with Manifest V3.</p>
+      <a href="../welcome.html" style="color: var(--accent); font-weight: 600; font-size: 13px;" id="ctaWelcomeOnboard">Get Started Guide &rarr;</a>
     </header>
 
     <!-- Key Value Props -->
@@ -36,6 +39,9 @@
       <div style="margin-top: 16px;">
         <h3>Manifest V3 Optimized</h3>
         <p>Built natively on declarativeNetRequest rulesets. Runs entirely inside the browser's C++ core for maximum execution efficiency and zero memory bloat.</p>
+
+        <h3>Instant YouTube Ad-Skipping</h3>
+        <p>Features an integrated frame-perfect listener that automatically detects and skips video ads instantly, closes overlays, and bypasses warning modals on YouTube.</p>
 
         <h3>Zero Telemetry Logging</h3>
         <p>Your browsing data never leaves your device. Dynamic rules, analytics blocks, and custom whitelists are compiled and processed locally.</p>
@@ -47,11 +53,11 @@
 
     <!-- Footer -->
     <footer>
-      <span>&copy; 2026 Ad Blocker. Open-source under MIT License.</span>
+      <span>&copy; 2026 AdVoid. Open-source under MIT License.</span>
       <div class="footer-links">
-        <a href="features.html" class="footer-link">Features</a>
-        <a href="privacy.html" class="footer-link">Privacy Policy</a>
-        <a href="support.html" class="footer-link">Support & FAQ</a>
+        <a href="features.html" class="footer-link" id="footerLinkFeatures">Features</a>
+        <a href="privacy.html" class="footer-link" id="footerLinkPrivacy">Privacy Policy</a>
+        <a href="support.html" class="footer-link" id="footerLinkSupport">Support & FAQ</a>
       </div>
     </footer>
   </div>

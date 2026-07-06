@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "ad blocker",
+  "name": "AdVoid - MV3 Ad Blocker & YouTube Shield",
   "version": "1.4",
-  "description": "lightweight manifest v3 ad blocker with network blocking and cosmetic filters.",
+  "description": "Lightweight Manifest V3 ad blocker. Block display ads, skip YouTube video ads instantly, and secure your privacy.",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
