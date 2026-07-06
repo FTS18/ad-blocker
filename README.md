@@ -35,7 +35,7 @@ ad-blocker/
 
 ---
 
-## 18 Star Features (fts18star)
+## 18 Star Features
 
 1. **Static Display Ad Blocking:** DNR-based filtering of standard display banners, native placements, and sponsor widgets.
 2. **Popunder & Redirect Protection:** Hooks `window.open` calls on page contexts to block background tab-under ads.
