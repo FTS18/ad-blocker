@@ -1,0 +1,157 @@
+[
+  {
+    "id": 11,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": { "extensionPath": "/stubs/ga.js" }
+    },
+    "condition": {
+      "requestDomains": [
+        "google-analytics.com",
+        "analytics.google.com",
+        "googletagmanager.com",
+        "googletagservices.com"
+      ],
+      "resourceTypes": ["script", "image", "xmlhttprequest"]
+    }
+  },
+  {
+    "id": 12,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "scorecardresearch.com",
+        "quantserve.com",
+        "quantcast.com",
+        "bluekai.com",
+        "hotjar.com",
+        "hotjar.io",
+        "crazyegg.com",
+        "optimizely.com",
+        "adroll.com",
+        "mxpnl.com",
+        "amplitude.com",
+        "segment.io",
+        "clarity.ms",
+        "mc.yandex.ru",
+        "mixpanel.com",
+        "pixel.facebook.com",
+        "logx.optimizely.com",
+        "luckyorange.com",
+        "luckyorange.net",
+        "mouseflow.com",
+        "inspectlet.com",
+        "heapanalytics.com",
+        "heap.io",
+        "newrelic.com",
+        "skimresources.com",
+        "viglink.com",
+        "admitad.com",
+        "awin.com",
+        "tradedoubler.com",
+        "tynt.com",
+        "cj.com",
+        "commission-junction.com",
+        "linkshare.com",
+        "telemetry.urs.microsoft.com",
+        "o2.ingest.sentry.io",
+        "ingest.sentry.io",
+        "telemetry.mozilla.org",
+        "browser.events.data.microsoft.com",
+        "stats.g.doubleclick.net",
+        "metrika.yandex.ru",
+        "metrika.yandex.com",
+        "chartbeat.com",
+        "chartbeat.net",
+        "statcounter.com",
+        "woopra.com",
+        "clicky.com",
+        "kissmetrics.com",
+        "kissmetrics.net",
+        "bugsnag.com",
+        "rollbar.com",
+        "logrocket.com",
+        "lr-ingest.io",
+        "fullstory.com",
+        "matomo.org",
+        "activecampaign.com",
+        "hubspot.com",
+        "track.hubspot.com",
+        "marketo.com",
+        "marketo.net",
+        "eloqua.com",
+        "criteo.net",
+        "api-iam.intercom.io",
+        "pardot.com",
+        "intercomcdn.com",
+        "userreport.com",
+        "vwo.com",
+        "clicktale.net",
+        "clicktale.com",
+        "bounceexchange.com",
+        "cxense.com",
+        "everesttech.net",
+        "webtrends.com",
+        "webstat.ru",
+        "statcounter.co.uk",
+        "histats.com",
+        "gemius.pl",
+        "demdex.net",
+        "crwdcntrl.net",
+        "exelator.com",
+        "t.tiktok.com",
+        "sc-static.net",
+        "snapads.com",
+        "appsflyer.com",
+        "adjust.com",
+        "adjust.io",
+        "kochava.com",
+        "branch.io"
+      ],
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest"]
+    }
+  },
+  {
+    "id": 13,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "connect.facebook.net",
+        "platform.twitter.com",
+        "analytics.twitter.com",
+        "platform.linkedin.com",
+        "ads.linkedin.com",
+        "assets.pinterest.com",
+        "ads.pinterest.com",
+        "tr.snapchat.com",
+        "analytics.snapchat.com",
+        "analytics.tiktok.com"
+      ],
+      "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest"]
+    }
+  },
+  {
+    "id": 14,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "header": "Referer", "operation": "remove" },
+        { "header": "Sec-CH-UA", "operation": "remove" }
+      ]
+    },
+    "condition": {
+      "requestDomains": [
+        "google-analytics.com",
+        "analytics.google.com",
+        "googletagmanager.com",
+        "facebook.com",
+        "tiktok.com"
+      ],
+      "resourceTypes": ["xmlhttprequest", "script", "image", "sub_frame"]
+    }
+  }
+]

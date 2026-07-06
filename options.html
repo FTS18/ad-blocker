@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ad Blocker Options</title>
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --card-bg: #121216;
+      --border: #222227;
+      --text: #e1e1e6;
+      --text-muted: #787880;
+      --accent: #30d158;
+      --danger: #ff453a;
+      --hover: #1c1c21;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+    input[type="text"], textarea {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 11px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+      line-height: 1.4;
+    }
+    button {
+      background: var(--accent);
+      border: none;
+      color: #0b0b0d;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    button.secondary:hover {
+      background: var(--hover);
+    }
+    button.danger {
+      background: var(--danger);
+      color: #fff;
+    }
+    .list-container {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg);
+    }
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+    }
+    .list-item:last-child {
+      border-bottom: none;
+    }
+    .list-item-name {
+      color: var(--text);
+      max-width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .delete-btn {
+      color: var(--danger);
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 11px;
+    }
+    .delete-btn:hover {
+      text-decoration: underline;
+    }
+    .empty-msg {
+      color: var(--text-muted);
+      padding: 16px;
+      text-align: center;
+      font-size: 11px;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 11px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="title">Ad Blocker Dashboard</span>
+      <span style="color: var(--text-muted)">Settings & Filters</span>
+    </div>
+
+    <!-- Whitelisted Websites -->
+    <div class="card">
+      <div class="card-title">whitelisted websites</div>
+      <div class="input-row">
+        <input type="text" id="whitelistInput" placeholder="Add website to whitelist (e.g. example.com)">
+        <button id="addWhitelistBtn">Trust Site</button>
+      </div>
+      <div class="list-container" id="whitelistContainer">
+        <!-- Dyn list -->
+      </div>
+    </div>
+
+    <!-- Custom Blocked Domains -->
+    <div class="card">
+      <div class="card-title">custom blocked domains</div>
+      <div class="input-row">
+        <input type="text" id="blockInput" placeholder="Add custom domain to block (e.g. annoying-domain.com)">
+        <button id="addBlockBtn" class="danger">Block Domain</button>
+      </div>
+      <div class="list-container" id="blockContainer">
+        <!-- Dyn list -->
+      </div>
+    </div>
+
+    <!-- Custom Cosmetic CSS Rules -->
+    <div class="card">
+      <div class="card-title">custom cosmetic filters (css hiding)</div>
+      <span style="color: var(--text-muted); font-size: 10px;">Enter CSS selectors (comma separated) of elements you want to hide:</span>
+      <textarea id="cssInput" placeholder="e.g. .ad-banner, #sponsored-sidebar, div[class*='ad-box']"></textarea>
+      <div style="display: flex; justify-content: flex-end;">
+        <button id="saveCssBtn">Save CSS Filters</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Settings Saved</div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,12 +1,16 @@
 {
   "manifest_version": 3,
   "name": "ad blocker",
-  "version": "1.0",
+  "version": "1.4",
   "description": "lightweight manifest v3 ad blocker with network blocking and cosmetic filters.",
   "permissions": [
     "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
     "storage",
-    "activeTab"
+    "activeTab",
+    "webNavigation",
+    "scripting",
+    "privacy"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -17,6 +21,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "css": ["cosmetic.css"],
       "js": ["content.js"],
       "run_at": "document_start"
     }
@@ -28,13 +33,35 @@
   "icons": {
     "128": "icon.png"
   },
+  "options_page": "options.html",
   "declarative_net_request": {
     "rule_resources": [
       {
-        "id": "ruleset_1",
+        "id": "ruleset_ads",
         "enabled": true,
-        "path": "rules.json"
+        "path": "rules/ads.json"
+      },
+      {
+        "id": "ruleset_trackers",
+        "enabled": true,
+        "path": "rules/trackers.json"
+      },
+      {
+        "id": "ruleset_annoyances",
+        "enabled": true,
+        "path": "rules/annoyances.json"
+      },
+      {
+        "id": "ruleset_malware",
+        "enabled": true,
+        "path": "rules/malware.json"
       }
     ]
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["stubs/ga.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

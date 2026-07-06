@@ -1,0 +1,9 @@
+.ad-banner, .adsbygoogle, [id*="google_ads_iframe"], iframe[src*="ads"], 
+.ytp-ad-overlay-container, .ytp-ad-message-container, .video-ads, .ytp-ad-player-overlay {
+  position: absolute !important;
+  left: -99999px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 1px !important;
+  width: 1px !important;
+}

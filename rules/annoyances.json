@@ -1,0 +1,50 @@
+[
+  {
+    "id": 21,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "blockadblock.com",
+        "adblockdetection.com",
+        "antiblock.org",
+        "functionalblock.com",
+        "buy.tinypass.com",
+        "admized.com",
+        "detectadblock.com",
+        "consent.cookiebot.com",
+        "cookiebot.com",
+        "onetrust.com",
+        "optanon.com",
+        "trustarc.com",
+        "i-dont-care-about-cookies.eu",
+        "didomi.io",
+        "quantcast.mgr.consensu.org",
+        "usercentric.eu",
+        "consentmanager.mgr.consensu.org"
+      ],
+      "resourceTypes": ["script"]
+    }
+  },
+  {
+    "id": 22,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "coinhive.com",
+        "coin-hive.com",
+        "crypto-loot.com",
+        "cryptoloot.pro",
+        "minr.pw",
+        "authedmine.com",
+        "webmine.cz",
+        "webminerpool.com",
+        "cryptonator.com",
+        "miner.blue",
+        "deepminer.work"
+      ],
+      "resourceTypes": ["script", "xmlhttprequest"]
+    }
+  }
+]
