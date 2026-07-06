@@ -37,9 +37,33 @@ function handleYoutubeAds() {
   }
 }
 
-// Observe page changes to detect dynamic ads (especially on YouTube)
+// Hide iframes loading Adsterra ads (via srcDoc analysis)
+function cleanAdsterraIframes() {
+  const iframes = document.querySelectorAll('iframe');
+  iframes.forEach(iframe => {
+    try {
+      const srcDoc = iframe.srcdoc || '';
+      if (srcDoc.includes('invoke.js') || srcDoc.includes('atOptions')) {
+        iframe.style.setProperty('display', 'none', 'important');
+        iframe.style.setProperty('height', '0', 'important');
+        
+        // Collapse the parent container if it only contains this iframe
+        const parent = iframe.parentElement;
+        if (parent && parent.children.length === 1) {
+          parent.style.setProperty('display', 'none', 'important');
+          parent.style.setProperty('height', '0', 'important');
+        }
+      }
+    } catch (e) {
+      // Ignore cross-origin errors
+    }
+  });
+}
+
+// Observe page changes to detect dynamic ads (especially on YouTube & dynamic iframes)
 const observer = new MutationObserver(() => {
   handleYoutubeAds();
+  cleanAdsterraIframes();
 });
 
 observer.observe(document.documentElement, {
@@ -48,4 +72,7 @@ observer.observe(document.documentElement, {
 });
 
 // Run backup check periodically
-setInterval(handleYoutubeAds, 200);
+setInterval(() => {
+  handleYoutubeAds();
+  cleanAdsterraIframes();
+}, 200);

@@ -394,5 +394,14 @@
       "urlFilter": "exdynsrv.com",
       "resourceTypes": ["script", "image", "sub_frame", "xmlhttprequest"]
     }
+  },
+  {
+    "id": 45,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "/invoke.js",
+      "resourceTypes": ["script", "xmlhttprequest"]
+    }
   }
 ]
